@@ -1,0 +1,275 @@
+<?php
+
+// use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Add extra languages for CodeSnippet
+ * NO LONGER REQUIRED AS SETTINGS ARE REWRITTEN USING THE CONFIG_REWRITE MODULE
+ * AND config\rewrite\codesnippet.settings.yml FILE
+ *
+ * @param $form
+ * @param FormStateInterface $form_state
+ * @param $form_id
+ */
+/*function codesnippet_extras_form_filter_format_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    //kint($form);
+    //foreach ($form['filter_settings'] as $akey => $aval) {
+    //    echo $akey . ' => ' . $aval . '<br>';
+    //}
+    //exit();
+    if (isset($form['editor']['settings']['subform']['plugins']['codesnippet'])) {
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['1c'] = '1C:Enterprise (v7, v8)';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['abnf'] = 'Augmented Backus-Naur Form';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['accesslog'] = 'Access log';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['actionscript'] = 'ActionScript';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['ada'] = 'Ada';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['angelscript'] = 'AngelScript';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['apache'] = 'Apache';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['applescript'] = 'AppleScript';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['arcade'] = 'ArcGIS Arcade';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['arduino'] = 'Arduino';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['armasm'] = 'ARM Assembly';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['asciidoc'] = 'AsciiDoc';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['aspectj'] = 'AspectJ';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['autohotkey'] = 'AutoHotkey';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['autoit'] = 'AutoIt';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['avrasm'] = 'AVR Assembler';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['awk'] = 'Awk';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['axapta'] = 'Axapta';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['bash'] = 'Bash';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['basic'] = 'Basic';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['bnf'] = 'Backus–Naur Form';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['brainfuck'] = 'Brainfuck';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['cal'] = 'C/AL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['capnproto'] = 'Cap’n Proto';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['ceylon'] = 'Ceylon';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['clean'] = 'Clean';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['clojure-repl'] = 'Clojure REPL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['clojure'] = 'Clojure';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['cmake'] = 'CMake';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['coffeescript'] = 'CoffeeScript';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['coq'] = 'Coq';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['cos'] = 'Caché Object Script';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['cpp'] = 'C++';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['crmsh'] = 'crmsh';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['crystal'] = 'Crystal';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['cs'] = 'C#';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['csp'] = 'CSP';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['css'] = 'CSS';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['d'] = 'D';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['dart'] = 'Dart';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['delphi'] = 'Delphi';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['diff'] = 'Diff';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['django'] = 'Django';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['dns'] = 'DNS Zone file';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['dockerfile'] = 'Dockerfile';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['dos'] = 'DOS .bat';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['dsconfig'] = 'dsconfig';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['dts'] = 'Device Tree';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['dust'] = 'Dust';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['ebnf'] = 'Extended Backus-Naur Form';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['elixir'] = 'Elixir';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['elm'] = 'Elm';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['erb'] = 'ERB (Embedded Ruby)';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['erlang-repl'] = 'Erlang REPL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['erlang'] = 'Erlang';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['excel'] = 'Excel';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['fix'] = 'FIX';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['flix'] = 'Flix';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['fortran'] = 'Fortran';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['fsharp'] = 'F#';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['gams'] = 'GAMS';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['gauss'] = 'GAUSS';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['gcode'] = 'G-code (ISO 6983)';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['gherkin'] = 'Gherkin';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['glsl'] = 'GLSL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['gml'] = 'GML';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['go'] = 'Go';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['golo'] = 'Golo';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['gradle'] = 'Gradle';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['groovy'] = 'Groovy';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['haml'] = 'Haml';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['handlebars'] = 'Handlebars';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['haskell'] = 'Haskell';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['haxe'] = 'Haxe';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['hsp'] = 'HSP';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['htmlbars'] = 'HTMLBars';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['http'] = 'HTTP';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['hy'] = 'Hy';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['inform7'] = 'Inform 7';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['ini'] = 'Ini, TOML';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['irpf90'] = 'IRPF90';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['isbl'] = 'ISBL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['java'] = 'Java';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['javascript'] = 'JavaScript';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['jboss-cli'] = 'jboss-cli';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['json'] = 'JSON';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['julia-repl'] = 'Julia REPL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['julia'] = 'Julia';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['kotlin'] = 'Kotlin';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['lasso'] = 'Lasso';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['ldif'] = 'LDIF';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['leaf'] = 'Leaf';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['less'] = 'Less';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['lisp'] = 'Lisp';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['livecodeserver'] = 'LiveCode';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['livescript'] = 'LiveScript';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['llvm'] = 'LLVM IR';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['lsl'] = 'Linden Scripting Language';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['lua'] = 'Lua';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['makefile'] = 'Makefile';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['markdown'] = 'Markdown';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['mathematica'] = 'Mathematica';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['matlab'] = 'Matlab';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['maxima'] = 'Maxima';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['mel'] = 'MEL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['mercury'] = 'Mercury';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['mipsasm'] = 'MIPS Assembly';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['mizar'] = 'Mizar';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['mojolicious'] = 'Mojolicious';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['monkey'] = 'Monkey';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['moonscript'] = 'MoonScript';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['n1ql'] = 'N1QL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['nginx'] = 'Nginx';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['nimrod'] = 'Nimrod';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['nix'] = 'Nix';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['nsis'] = 'NSIS';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['objectivec'] = 'Objective-C';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['ocaml'] = 'OCaml';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['openscad'] = 'OpenSCAD';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['oxygene'] = 'Oxygene';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['parser3'] = 'Parser3';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['perl'] = 'Perl';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['pf'] = 'pf';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['pgsql'] = 'PostgreSQL SQL dialect and PL/pgSQL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['php'] = 'PHP';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['plaintext'] = 'plaintext';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['pony'] = 'Pony';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['powershell'] = 'PowerShell';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['processing'] = 'Processing';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['profile'] = 'Python profile';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['prolog'] = 'Prolog';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['properties'] = 'Properties';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['protobuf'] = 'Protocol Buffers';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['puppet'] = 'Puppet';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['purebasic'] = 'PureBASIC';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['python'] = 'Python';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['q'] = 'Q';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['qml'] = 'QML';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['r'] = 'R';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['reasonml'] = 'ReasonML';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['rib'] = 'RenderMan RIB';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['roboconf'] = 'Roboconf';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['routeros'] = 'Microtik RouterOS script';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['rsl'] = 'RenderMan RSL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['ruby'] = 'Ruby';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['ruleslanguage'] = 'Oracle Rules Language';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['rust'] = 'Rust';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['sas'] = 'SAS';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['scala'] = 'Scala';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['scheme'] = 'Scheme';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['scilab'] = 'Scilab';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['scss'] = 'SCSS';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['shell'] = 'Shell Session';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['smali'] = 'Smali';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['smalltalk'] = 'Smalltalk';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['sml'] = 'SML';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['sqf'] = 'SQF';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['sql'] = 'SQL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['stan'] = 'Stan';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['stata'] = 'Stata';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['step21'] = 'STEP Part 21';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['stylus'] = 'Stylus';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['subunit'] = 'SubUnit';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['swift'] = 'Swift';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['taggerscript'] = 'Tagger Script';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['tap'] = 'Test Anything Protocol';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['tcl'] = 'Tcl';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['tex'] = 'TeX';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['thrift'] = 'Thrift';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['tp'] = 'TP';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['twig'] = 'Twig';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['typescript'] = 'TypeScript';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['vala'] = 'Vala';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['vbnet'] = 'VB.NET';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['vbscript-html'] = 'VBScript in HTML';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['vbscript'] = 'VBScript';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['verilog'] = 'Verilog';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['vhdl'] = 'VHDL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['vim'] = 'Vim Script';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['x86asm'] = 'Intel x86 Assembly';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['xl'] = 'XL';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['xml'] = 'HTML, XML';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['xquery'] = 'XQuery';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['yaml'] = 'YAML';
+        $form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']['zephir'] = 'Zephir';
+        asort($form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']);
+    }
+    //kint($form['editor']['settings']['subform']['plugins']['codesnippet']['highlight_languages']['#options']);
+}
+*/
+
+/**
+ * Implements hook_library_info_alter().
+ * Figured that doing preprocess_html might actually be faster than looping
+ * through 118 array items.
+ */
+/* function codesnippet_extras_library_info_alter(&$libraries, $extension) {
+  return;
+  if ($extension === 'codesnippet') {
+    foreach (['a11y-dark', 'a11y-light', 'agate', 'an-old-hope', 'androidstudio', 'arduino-light', 'arta', 'ascetic'
+      , 'atelier-cave-dark', 'atelier-cave-light', 'atelier-cave.dark', 'atelier-cave.light', 'atelier-dune-dark'
+      , 'atelier-dune-light', 'atelier-dune.dark', 'atelier-dune.light', 'atelier-estuary-dark', 'atelier-estuary-light'
+      , 'atelier-estuary.dark', 'atelier-estuary.light', 'atelier-forest-dark', 'atelier-forest-light'
+      , 'atelier-forest.dark', 'atelier-forest.light', 'atelier-heath-dark', 'atelier-heath-light', 'atelier-heath.dark'
+      , 'atelier-heath.light', 'atelier-lakeside-dark', 'atelier-lakeside-light', 'atelier-lakeside.dark'
+      , 'atelier-lakeside.light', 'atelier-plateau-dark', 'atelier-plateau-light', 'atelier-plateau.dark'
+      , 'atelier-plateau.light', 'atelier-savanna-dark', 'atelier-savanna-light', 'atelier-savanna.dark'
+      , 'atelier-savanna.light', 'atelier-seaside-dark', 'atelier-seaside-light', 'atelier-seaside.dark'
+      , 'atelier-seaside.light', 'atelier-sulphurpool-dark', 'atelier-sulphurpool-light', 'atelier-sulphurpool.dark'
+      , 'atelier-sulphurpool.light', 'atom-one-dark-reasonable', 'atom-one-dark', 'atom-one-light', 'brown-paper'
+      , 'brown_paper', 'codepen-embed', 'color-brewer', 'darcula', 'dark', 'darkula', 'default', 'docco', 'dracula'
+      , 'far', 'foundation', 'github-gist', 'github', 'gml', 'googlecode', 'grayscale', 'gruvbox-dark', 'gruvbox-light'
+      , 'hopscotch', 'hybrid', 'idea', 'ir-black', 'ir_black', 'isbl-editor-dark', 'isbl-editor-light', 'kimbie.dark'
+      , 'kimbie.light', 'lightfair', 'magula', 'mono-blue', 'monokai-sublime', 'monokai', 'monokai_sublime', 'night-owl'
+      , 'nord', 'obsidian', 'ocean', 'paraiso-dark', 'paraiso-light', 'paraiso.dark', 'paraiso.light', 'pojoaque'
+      , 'purebasic', 'qtcreator_dark', 'qtcreator_light', 'railscasts', 'rainbow', 'routeros', 'school-book'
+      , 'school_book', 'shades-of-purple', 'solarized-dark', 'solarized-light', 'solarized_dark', 'solarized_light'
+      , 'sunburst', 'tomorrow-night-blue', 'tomorrow-night-bright', 'tomorrow-night-eighties', 'tomorrow-night'
+      , 'tomorrow', 'vs', 'vs2015', 'xcode', 'xt256', 'zenburn'] as $style) {
+      $libraries["codesnippet.style.{$style}"] = [
+          'css' => [
+              'theme' => [
+                  "/libraries/codesnippet/lib/highlight/styles/{$style}.css" => []
+              ]
+          ]
+      ];
+    }
+  }
+}
+*/
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * Copied from codesnippet_preprocess_html.
+ */
+function codesnippet_extras_preprocess_html(&$variables) {
+    $entity = \Drupal::entityTypeManager()->getStorage('editor');
+    $editors = $entity->loadMultiple();
+
+    foreach ($editors as $editor) {
+        if ($editor->getEditor() != 'ckeditor') {
+            // bail, as the plugin only works for CKEditor.
+            continue;
+        }
+
+        $settings = $editor->getSettings();
+
+        if (!empty($settings['plugins']['codesnippet']['highlight_style'])) {
+            $variables['#attached']['library'][] = 'codesnippet_extras/codesnippet.style.' . $settings['plugins']['codesnippet']['highlight_style'];
+        }
+    }
+}

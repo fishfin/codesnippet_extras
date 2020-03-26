@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function codesnippet_extras_install() {
+    module_set_weight('codesnippet_extras', 10);
+}

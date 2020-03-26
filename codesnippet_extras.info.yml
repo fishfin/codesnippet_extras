@@ -1,0 +1,11 @@
+name: CodeSnippet Extras [fishfin]
+type: module
+description: "Adds additional languages and styles from highlightjs library to CKEditor CodeSnippet plugin."
+core: '8.x'
+version: '8.x-1.0-dev'
+package: CKEditor
+
+dependencies:
+  - ckeditor
+  - codesnippet
+  - config_rewrite

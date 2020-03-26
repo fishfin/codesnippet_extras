@@ -1,0 +1,58 @@
+{
+  "name": "fishfin/codesnippet_extras",
+  "description": "Adds additional languages and styles from highlightjs library to CKEditor CodeSnippet plugin.",
+  "version": "1.0.0-dev",
+  "type": "metapackage",
+  "keywords": [
+    "drupal",
+    "codesnippet",
+    "hightlightjs"
+  ],
+  "homepage": "https://github.com/fishfin/codesnippet_extras",
+  "readme": "README.md",
+  "time": "2020-03-24 00:00:00",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fishfin",
+      "email": "mailbox.fishfin@gmail.com",
+      "homepage": "http://fishf.in",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/fishfin/codesnippet_extras"
+  },
+  "require": {
+    "composer/installers": "^1.2",
+    "drupal/core": "^8.8 || ^9.0",
+    "drupal/codesnippet": "^1.6",
+    "drupal/config_rewrite": "^1.2",
+    "fishfin/codesnippet_extras": "*",
+    "npm-asset/highlightjs": "^9.16",
+    "php": "7.2.* || 7.3.* || 7.4.*"
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "fishfin/codesnippet_extras",
+        "version": "1.0.0-dev",
+        "type": "drupal-module",
+        "extra": {
+          "installer-name": "codesnippet_extras"
+        },
+        "dist": {
+          "url": "https://github.com/fishfin/codesnippet_extras/archive/master.zip",
+          "type": "zip"
+        }
+      }
+    }
+  ],
+  "extra": {
+    "installer-paths": {
+      "public_html/modules/custom/{$name}": ["fishfin/codesnippet_extras"],
+      "public_html/libraries/codesnippet/lib/highlight": ["npm-asset/highlightjs"]
+    }
+  }
+}
